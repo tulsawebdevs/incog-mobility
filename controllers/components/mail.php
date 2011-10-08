@@ -468,7 +468,7 @@ class IncogMail extends MailComponent {
 	var $defaultCC;
 
 	function __construct($reply_to = "noreply@onecareco.com" )  {
-		$this->Subject("Ride Request digest ".strftime("%m/%d/%Y");
+		$this->Subject("Ride Request digest ".strftime("%m/%d/%Y"));
 		$this->From("Incog Mobility Center <$reply_to>");
 		$this->defaultCC = "innerechotest@gmail.com";
 		$this->charset = "iso-8859-15";
