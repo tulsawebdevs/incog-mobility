@@ -141,7 +141,7 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 /* line 273, src/partials/_reset.scss */
 html { overflow-y: scroll; }
 
-/* make buttons play nice in IE:     www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+/* make buttons play nice in IE:     www.viget.com/inspire/styling-the-button-element-in-interet-explorer/ */
 /* line 279, src/partials/_reset.scss */
 button { width: auto; overflow: visible; }
 
@@ -260,7 +260,7 @@ button.disabled:hover { background-color: #f5f5f5; border-color: #eeeeee #dedede
 
 /* General Page Structure ===========================================================================*/
 /* line 3, src/partials/_common.scss */
-body { background: #c99f4b url(../img/body-bg.jpg) top center repeat-x; }
+body { background: #efefef; }
 
 /* line 7, src/partials/_common.scss */
 #page { width: 960px; margin: 5px auto 50px; }
@@ -275,7 +275,11 @@ h1, h2, h3, h4, h5, h6, p, ol, ul, dl, hr, table, blockquote { margin-bottom: 1e
 h1.last, h2.last, h3.last, h4.last, h5.last, h6.last, p.last, ol.last, ul.last, dl.last, hr.last, table.last, blockquote.last { margin-bottom: 0; }
 
 /* line 29, src/partials/_common.scss */
-h1 { font-size: 20px; font-weight: normal; color: #9c3482; }
+h1 {
+	font-size: 20px;
+	font-weight: normal;
+	color: #FF8F00;
+}
 
 /* line 35, src/partials/_common.scss */
 h2 { font-size: 18px; font-weight: normal; color: #133d6f; }
@@ -290,7 +294,7 @@ h4 { font-size: 13px; font-weight: bold; color: #444444; }
 a { color: #3c8eca; }
 /* line 24, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 a:hover { color: #3c8eca; }
-
+a.logo img {border: 5px solid #fff; border-radius: 5px;}
 /* line 51, src/partials/_common.scss */
 .left { display: inline; float: left; margin-right: 5px; }
 
@@ -322,7 +326,7 @@ a:hover { color: #3c8eca; }
 /* line 118, src/partials/_common.scss */
 header { position: relative; }
 /* line 121, src/partials/_common.scss */
-header .logo { position: relative; z-index: 6; }
+header .logo { position: relative; z-index: 6; border:3px solid #fff; }
 
 /* line 127, src/partials/_common.scss */
 #primaryNavAndSearchWrapper { position: absolute; width: 100%; bottom: 39px; z-index: 5; background: transparent url(../img/nav-search-bg.jpg) top right no-repeat; }
