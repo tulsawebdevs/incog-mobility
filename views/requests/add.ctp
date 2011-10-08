@@ -14,11 +14,19 @@ echo $interform->create("Request");
 	<div class="section">
 		<div class="field span-6">
 			<label for="ZIP">ZIP<span class="required">*</span></label>
-			<input type="text" class="required text" name="data[Request][zip]" id="zip" value="" />
+			<input type="text" class="required text" name="data[Request][zip]" id="zip" value="74136" />
+		</div>
+		<div class="field span-6">
+			<label for="phone">Phone<span class="required">*</span></label>
+			<input type="text" class="required text" name="data[Request][phone]" id="phone" value="918-987-6543" />
+		</div>
+		<div class="field span-6">
+			<label for="phone">Name<span></span></label>
+			<input type="text" class="text" name="data[Request][name]" id="name" value="Daphne Morehead" />
 		</div>
 		<div class="field span-6">
 			<label for="detail">Detailed Description<span class="required">*</span></label>
-			<textarea name="data[Request][detail]" id="detail"></textarea>
+			<textarea name="data[Request][detail]" id="detail">I need a ride to the library Friday at noon.</textarea>
 		</div>
 
 		<button type="submit" class="positive">

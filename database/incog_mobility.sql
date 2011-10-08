@@ -1,135 +1,179 @@
--- phpMyAdmin SQL Dump
--- version 2.11.4-rc1
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 5.1.49, for debian-linux-gnu (i686)
 --
--- Host: localhost
--- Generation Time: Oct 08, 2011 at 06:13 AM
--- Server version: 5.0.27
--- PHP Version: 5.1.6
+-- Host: localhost    Database: incog_mobility
+-- ------------------------------------------------------
+-- Server version	5.1.49-1ubuntu8.1
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `incog_mobility`
+-- Table structure for table `providers`
 --
 
--- --------------------------------------------------------
-
---
--- Table structure for table `provider`
---
-
-CREATE TABLE IF NOT EXISTS `providers` (
-  `id` int(11) NOT NULL auto_increment,
+DROP TABLE IF EXISTS `providers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `providers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `contact_email` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  PRIMARY KEY (`id`) 
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `provider`
+-- Dumping data for table `providers`
 --
 
-INSERT INTO `provider` (`id`, `name`, `contact_email`) VALUES
-(1, 'Crazy Hazim''s Discount Donkey Rides', 'hazim@chddr.com');
-
--- --------------------------------------------------------
+LOCK TABLES `providers` WRITE;
+/*!40000 ALTER TABLE `providers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `providers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `provider_type`
+-- Table structure for table `providers_types`
 --
 
-CREATE TABLE IF NOT EXISTS `providers_types` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `providers_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `providers_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `provider_id` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `provider_type`
+-- Dumping data for table `providers_types`
 --
 
-INSERT INTO `provider_type` (`id`, `provider_id`, `type_id`) VALUES
-(1, 1, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `providers_types` WRITE;
+/*!40000 ALTER TABLE `providers_types` DISABLE KEYS */;
+/*!40000 ALTER TABLE `providers_types` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `request`
+-- Table structure for table `requests`
 --
 
-CREATE TABLE IF NOT EXISTS `requests` (
-  `id` int(11) NOT NULL auto_increment,
+DROP TABLE IF EXISTS `requests`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `rider_id` int(11) NOT NULL,
   `zip` int(11) NOT NULL,
   `detail` text,
-  `audio_url` varchar(255) default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `audio_url` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `request`
+-- Dumping data for table `requests`
 --
 
-
--- --------------------------------------------------------
+LOCK TABLES `requests` WRITE;
+/*!40000 ALTER TABLE `requests` DISABLE KEYS */;
+INSERT INTO `requests` VALUES (1,0,74136,'I need a ride to the library Friday at noon.',NULL,NULL),(2,0,74136,'I need a ride to the library Friday at noon.submitted name: Daphne Moreheadsubmitted phone: 918-251-0908',NULL,NULL),(3,0,74136,'I need a ride to the library Friday at noon.submitted name: Daphne Morehead\nsubmitted phone: 918-987-6543\n',NULL,'dispatched'),(4,0,74136,'I need a ride to the library Friday at noon.submitted name: Daphne Morehead\nsubmitted phone: 918-987-6543\n',NULL,'dispatched'),(5,0,74136,'I need a ride to the library Friday at noon.submitted name: Daphne Morehead\nsubmitted phone: 918-987-6543\n',NULL,'dispatched');
+/*!40000 ALTER TABLE `requests` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `rider`
+-- Table structure for table `riders`
 --
 
-CREATE TABLE IF NOT EXISTS `riders` (
-  `id` int(10) unsigned NOT NULL auto_increment,
+DROP TABLE IF EXISTS `riders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `riders` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `notes` text,
-  `default_zip` int(11) default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `default_zip` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `rider`
+-- Dumping data for table `riders`
 --
 
-INSERT INTO `riders` (`id`, `name`, `phone`, `notes`, `default_zip`) VALUES
-(1, 'Daphne Morehead', '918-987-6543', NULL, NULL);
-
--- --------------------------------------------------------
+LOCK TABLES `riders` WRITE;
+/*!40000 ALTER TABLE `riders` DISABLE KEYS */;
+INSERT INTO `riders` VALUES (1,'Daphne Morehead','918-987-6543',NULL,NULL);
+/*!40000 ALTER TABLE `riders` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `rider_type`
+-- Table structure for table `riders_types`
 --
 
-CREATE TABLE IF NOT EXISTS `riders_types` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `riders_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `riders_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `rider_id` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `rider_type`
+-- Dumping data for table `riders_types`
 --
 
-INSERT INTO `riders_types` (`id`, `rider_id`, `type_id`) VALUES
-(0, 1, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `riders_types` WRITE;
+/*!40000 ALTER TABLE `riders_types` DISABLE KEYS */;
+INSERT INTO `riders_types` VALUES (1,1,1);
+/*!40000 ALTER TABLE `riders_types` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `type`
+-- Table structure for table `types`
 --
 
-CREATE TABLE IF NOT EXISTS `types` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `type`
+-- Dumping data for table `types`
 --
 
-INSERT INTO `types` (`id`, `name`) VALUES
-(0, 'Veteran');
+LOCK TABLES `types` WRITE;
+/*!40000 ALTER TABLE `types` DISABLE KEYS */;
+INSERT INTO `types` VALUES (1,'Veteran');
+/*!40000 ALTER TABLE `types` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2011-10-08  0:13:00
