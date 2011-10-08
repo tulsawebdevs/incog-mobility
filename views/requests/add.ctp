@@ -2,7 +2,7 @@
 <h1>Request Ride</h1>
 
 <div class="messaging">
-	<p class="no-js error"><img src="/img/icons/error.png" /> Your browser does not have JavaScript enabled. <a href="http://www.google.com/support/bin/answer.py?answer=23852">Learn how to enable JavaScript</a> before using this application.</p>
+	<p class="no-js error"><img src="/img/icons/error.png" alt="no javascript"/> Your browser does not have JavaScript enabled. <a href="http://www.google.com/support/bin/answer.py?answer=23852">Learn how to enable JavaScript</a> before using this application.</p>
 </div>
 
 <p>Fields marked with an asterisk (<span class="required">*</span>) are required.</p>
@@ -13,7 +13,7 @@ echo $interform->create("Request");
 	<h2 class="expanded">General Information</h2>
 	<div class="section">
 		<div class="field span-6">
-			<label for="ZIP">ZIP<span class="required">*</span></label>
+			<label for="zip">ZIP<span class="required">*</span></label>
 			<input type="text" class="required text" name="data[Request][zip]" id="zip" value="74136" />
 		</div>
 		<div class="field span-6">
