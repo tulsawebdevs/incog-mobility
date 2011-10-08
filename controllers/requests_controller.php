@@ -231,5 +231,24 @@ EOF;
 echo $TwilioResponse;
 exit;
 	}
+	
+  function playTwilio() {
+    
+    include("./Services/Twilio/Capabilty.php")
+    $accountSid = 'AC6dacc852e3782d9f8f034ce8e406ff2d';
+    $authToken = '1c4747dc43eb9199d2c04dc8ed19d3ff';
+    
+    // Instantiate a new Twilio Rest Client
+    $client = new Services_Twilio($accountSid, $authToken);
+    echo ("<table>");
+    foreach($client->account->recordings as $recording) {
+    echo "<tr><td>{$recording->duration} seconds</td> ";
+    echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.mp3\" controls preload=\"auto\" autobuffer></audio></td>";
+    echo "<td>{$recording->date_created}</td>";
+    echo "<td>{$recording->sid}</td></tr>";
+    }
+    echo ("<table>");
+  }
+	
 }		
 ?>
