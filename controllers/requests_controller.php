@@ -60,9 +60,20 @@ class RequestsController extends AppController {
 		
 	}
 
+	function claim($requestId) {
+		$res = $this->Request->read(null,$requestId,array("recursive"=>1));
+        $hash = $this->params["url"]["hash"];
+        /*
+        $riderMatch = $this->Rider->find("all",array(
+        "conditions"=>array("phone"=>$Request["phone"])
+        ));
+		$provider = $this->Provider->
+        */
+	}
+
 	function admin() {
 		$conditions = array("status in ('provider undetermined') ");
-		$undeterminedRequests = $this->Request->find("all"
+		$undeterminedRequests = $this->Request->find("all",
 		array("conditions"=>$conditions)
 		);
 		pr($undeterminedRequests);
