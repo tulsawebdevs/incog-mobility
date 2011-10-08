@@ -1,0 +1,22 @@
+validate as HTML5
+	layout & requests/add.ctp
+
+prettier layout, more appropriate graphics
+
+twilio:
+record voice script
+(preprocess) identify rider (type & zip) by phone if possible
+
+provider interface (web):
+identify provide by hash in email link
+url for sound file playback
+url for "claim"
+update request status
+
+rider interface (web)
+Markup/CSS templates:
+	requests/add.ctp
+
+admin interface (web)
+link to edit/categorize unidentified riders
+datatables plugin/sorting
