@@ -234,7 +234,7 @@ exit;
 	
   function playTwilio() {
     
-    include("./Services/Twilio/Capabilty.php")
+    include("./Services/Twilio/Capabilty.php");
     $accountSid = 'AC6dacc852e3782d9f8f034ce8e406ff2d';
     $authToken = '1c4747dc43eb9199d2c04dc8ed19d3ff';
     
