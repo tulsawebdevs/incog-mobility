@@ -124,22 +124,22 @@ where Request.id is not null and Request.status='dispatched'  order by created_a
 
 	function claim($requestId) {
 		$res = $this->Request->read(null,$requestId,array("recursive"=>1));
-        $hash = $this->params["url"]["hash"];
-        /*
-        $riderMatch = $this->Rider->find("all",array(
-        "conditions"=>array("phone"=>$Request["phone"])
-        ));
-		$provider = $this->Provider->
-        */
+pr("original res");
+pr($res);
+$res["Request"]["status"] = "accepted";
+$this->Request->save($res);
+                $res = $this->Request->read(null,$requestId,array("recursive"=>1));
+pr("nnow");
+pr($res);
+//        $hash = $this->params["url"]["hash"];
 	}
 
 	function admin() {
-		$conditions = array("status in ('provider undetermined') ");
-		$undeterminedRequests = $this->Request->find("all",
+		$conditions = array("status!='accepted' ");
+		$lstRequests = $this->Request->find("all",
 		array("conditions"=>$conditions)
 		);
-		pr($undeterminedRequests);
-		exit;
+		$this->set("lstRequests",$lstRequests);
 
 	}
 	
