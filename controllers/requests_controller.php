@@ -59,7 +59,9 @@ class RequestsController extends AppController {
 //echo FULL_BASE_URL;
 //exit;
                 $res = $this->Request->read(null,$requestId,array("recursive"=>1));
-	$requestAudio = $res["audio_url"];
+	$requestAudio = $res["Request"]["audio_url"];
+$audiopieces = explode("/",$requestAudio);
+$audioId = $audiopieces[7];
 
     include("./Services/Twilio.php");
 
@@ -71,8 +73,8 @@ class RequestsController extends AppController {
     $client = new Services_Twilio($accountSid, $authToken);
     echo ("<table>");
     foreach($client->account->recordings as $recording) {
-pr($recording);
-exit;
+if($recording->sid != $audioId ) continue;
+	pr($recording->sid);
     echo "<tr><td>{$recording->duration} seconds</td> ";
     echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
     echo "<td>{$recording->date_created}</td>";
@@ -81,8 +83,7 @@ exit;
     echo ("<table>");
 
 
-		$res = $this->Request->read(null,$requestId,array("recursive"=>1));
-		
+//exit;		
 	}
 	function digest() {
 		$lstProviders = $this->Provider->find("all");
