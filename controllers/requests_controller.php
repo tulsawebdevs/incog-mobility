@@ -124,7 +124,18 @@ echo "Mail sent to ".$Provider["Provider"]["name"]." (".$Provider["Provider"]["c
 		$this->set("lstRequests",$allRequests);
 	}
 
-function getUser($receivedFromPhone) {
+function getRider($receivedFromPhone) {
+	$conditions = array("phone"=>$receivedFromPhone);
+	$Rider = $this->Rider->find("first",
+	array("conditions"=> $conditions)
+	);
+	if($Rider) {
+	return $Rider;
+	
+	}else{
+		trigger_error("no rider matched conditions");
+		pr($conditions);
+	}
 }
 
 function twilio() {
@@ -133,12 +144,13 @@ if(!Configure::read("debug")) {
 }
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
+$receivedFromPhone = str_replace("+","",$_REQUEST['From']);
 
-$receivedFromPhone = str_replace("+","",$people[$_REQUEST['From']]);
 
-
-$username = $this->getUser($receivedFromPhone);
-$zip = "74136";
+$Rider = $this->getRider($receivedFromPhone);
+$defaultZip = $Rider["Rider"]["default_zip"];
+pr($Rider);
+//exit;
         $str = '';
         $str .= "<Pause length=\"1\" /><Say voice=\"woman\"> To get a ride from {$zip}, press 1 </Say>";
 
