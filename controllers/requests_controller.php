@@ -58,10 +58,17 @@ class RequestsController extends AppController {
 	function detail($requestId) {
 //echo FULL_BASE_URL;
 //exit;
-                $res = $this->Request->read(null,$requestId,array("recursive"=>1));
-	$requestAudio = $res["Request"]["audio_url"];
-$audiopieces = explode("/",$requestAudio);
-$audioId = $audiopieces[7];
+//                $res = $this->Request->read(null,$requestId,array("recursive"=>1));
+$q = "select
+	Request.*, Rider.*
+	from riders_types x
+	left join riders Rider on (x.rider_id=Rider.id and x.type_id='$thisTypeId' )
+	left join requests Request on Request.rider_id=Rider.id
+where Request.id = '$requestId'
+";
+//pr($q);
+				$res = $this->Request->query($q);
+	$requestAudio = $res["audio_url"];
 
     include("./Services/Twilio.php");
 
@@ -71,20 +78,19 @@ $audioId = $audiopieces[7];
 
     // Instantiate a new Twilio Rest Client
     $client = new Services_Twilio($accountSid, $authToken);
-    $detailAudio = "<table>";
+    echo ("<table>");
     foreach($client->account->recordings as $recording) {
-	if($recording->sid != $audioId ) continue;
-	pr($recording->sid);
-    $detailAudio .= "<tr><td>{$recording->duration} seconds</td> ";
-    $detailAudio .= "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
-    $detailAudio .= "<td>{$recording->date_created}</td>";
-//    $detailAudio .= "<td>{$recording->sid}</td></tr>";
-    }
-    $detailAudio .="<table>";
-$this->set("detailAudio",$detailAudio);
-$this->set("Request",$res);
 
-//exit;		
+    echo "<tr><td>{$recording->duration} seconds</td> ";
+    echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
+    echo "<td>{$recording->date_created}</td>";
+    echo "<td>{$recording->sid}</td></tr>";
+    }
+    echo ("<table>");
+
+
+		$res = $this->Request->read(null,$requestId,array("recursive"=>1));
+		
 	}
 	function digest() {
 		$lstProviders = $this->Provider->find("all");
@@ -175,15 +181,15 @@ $receivedFromPhone = str_replace("+","",$_REQUEST['From']);
 
 $Rider = $this->getRider($receivedFromPhone);
 $defaultZip = $Rider["Rider"]["default_zip"];
+//pr($Rider);
 $zip = $Rider["Rider"]["default_zip"];
-$friendlyName = $Rider["Rider"]["name"];
 //exit;
         $str = '';
         $str .= "<Pause length=\"2\" />";
 $FULL_BASE_URL = FULL_BASE_URL;
 $TwilioResponse =<<<EOF
 <Response>
-    <Say voice="woman">Hello {$friendlyName}. 
+    <Say voice="woman">
     Welcome to the INCOG Mobility center.</Say>
     <Gather action="$FULL_BASE_URL/requests/twilio2" numDigits="1">
 <Say voice="woman"> To get a ride from {$zip}, press 1 </Say>

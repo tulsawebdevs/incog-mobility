@@ -484,7 +484,7 @@ class IncogMail extends MailComponent {
 				<h1 style="font-size: 20px; font-weight: normal; color: #9c3482;">INCOG Mobility Center Ride Requests</h1>
 
 				<p>Ride requests pending<br/>Oldest requests are listed first</p>
-<table width=100% border="1">
+<table width=100%>
 <tr><td>Rider</td><td>ZIP</td><td>Phone</td><td>Received At</td><td>Description</td><td>Details</td></tr>
 
 EOF;
