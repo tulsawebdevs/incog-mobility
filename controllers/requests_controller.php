@@ -60,18 +60,34 @@ class RequestsController extends AppController {
 		
 	}
 	function digest() {
-		$lstProviders = $this->Request->find("all");
+		$lstProviders = $this->Provider->find("all");
 		foreach($lstProviders as $Provider) {
-			$lstRequests = $this->Request->find("all",
-			array("conditions"=>$conditions)
-			);
+pr("types matchin provider ".$Provider["Provider"]["id"]);
+pr($Provider["Type"]);
+			foreach($Provider["Type"] as $Type) {
+$thisTypeId = $Type["id"];
+$q = "select
+	Request.*, Rider.*
+	from riders_types x
+	left join riders Rider on (x.rider_id=Rider.id and x.type_id='$thisTypeId' )
+	left join requests Request on Request.rider_id=Rider.id
+where Request.id is not null
+";
+pr($q);
+				$lstRequests = $this->Request->query($q);
+			}
 			if(sizeof($lstRequests) ) {
+pr("requestS: for type $thisTypeId ");
+pr($lstRequests);
 			$Mail = new IncogMail;
 			$Mail->buildFromRequests($lstRequests);
 			}else{
 			//log "No requests open for provider $Provider["id"]
 			}
+pr($Mail);
+exit;
 		}
+	exit;
 	}
 
 	function claim($requestId) {

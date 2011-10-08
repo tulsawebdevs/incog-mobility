@@ -464,13 +464,13 @@ if (!isset($this->boundary)) {
 }
 
 class IncogMail extends MailComponent {
-	var $defaultRecipient = "innerechotest@gmail.com";
+	var $defaultRecipient = "luke.crouch+incog@gmail.com";
 	var $defaultCC;
 
 	function __construct($reply_to = "noreply@onecareco.com" )  {
 		$this->Subject("Ride Request digest ".strftime("%m/%d/%Y"));
 		$this->From("Incog Mobility Center <$reply_to>");
-		$this->defaultCC = "innerechotest@gmail.com";
+		$this->defaultCC = "luke.crouch+incog@gmail.com";
 		$this->charset = "iso-8859-15";
 		$this->ReplyTo($reply_to);
 		$this->boundary= "--" . md5( uniqid("myboundary") );
@@ -492,9 +492,7 @@ class IncogMail extends MailComponent {
 	<table width="600" cellpadding="0" cellspacing="0">
 		<tr>
 			<td>
-				<h1 style="font-size: 20px; font-weight: normal; color: #9c3482;">Request New Creative Project</h1>
-
-				<h2 style="font-size: 18px; font-weight: normal; color: #133d6f;">Your request was successfully submitted.</h2>
+				<h1 style="font-size: 20px; font-weight: normal; color: #9c3482;">INCOG Mobility Center Ride Requests</h1>
 
 				<p>Ride requests submitted today:
 EOF;

@@ -36,7 +36,7 @@ CREATE TABLE `providers` (
 
 LOCK TABLES `providers` WRITE;
 /*!40000 ALTER TABLE `providers` DISABLE KEYS */;
-INSERT INTO `providers` VALUES (2,'VA Transport','requests@example.com');
+INSERT INTO `providers` VALUES (2,'VA Transport','luke.crouch+vetprovider@gmail.com');
 /*!40000 ALTER TABLE `providers` ENABLE KEYS */;
 UNLOCK TABLES;
 
