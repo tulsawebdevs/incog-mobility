@@ -41,19 +41,19 @@ session_start();
  * The full path to the directory which holds "app", WITHOUT a trailing DS.
  *
  */
-	if (!defined('ROOT')) {
-		//define('ROOT', DS.'home'.DS.'mcrouch2'.DS.'workspace');
-define('ROOT', DS.'home'.DS.'sites');
-//		define('ROOT', dirname(dirname(dirname(__FILE__))));
-	}
+        if (!defined('ROOT')) {
+                //define('ROOT', DS.'home'.DS.'mcrouch2'.DS.'workspace');
+define('ROOT', DS.'var');
+//              define('ROOT', dirname(dirname(dirname(__FILE__))));
+        }
 /**
  * The actual directory name for the "app".
- *
+ * 
  */
-	if (!defined('APP_DIR')) {
-		define('APP_DIR', "shorttrends.com");
-//		define('APP_DIR', basename(dirname(dirname(__FILE__))));
-	}
+        if (!defined('APP_DIR')) {
+                define('APP_DIR', "www");
+//              define('APP_DIR', basename(dirname(dirname(__FILE__))));
+        }
 /**
  * The absolute path to the "cake" directory, WITHOUT a trailing DS.
  *

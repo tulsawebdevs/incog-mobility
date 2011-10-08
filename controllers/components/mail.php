@@ -331,18 +331,6 @@ function Send()
 	if (is_array($this->sendto)) {
 		$this->sendto = array_unique($this->sendto);
 	}
-	if (!strstr($_SERVER['SERVER_NAME'],"onecare")) {
-		$removeAddress = "webmaster@onecaredev.com";
-		Configure::write("debug",2);
-		pr("no mail for $removeAddress .. dev machine");
-		Configure::write("debug",0);
-		//don't send to TM and friends except @ prod
-		foreach($this->sendto as $i=>$addr) {
-			if (strtolower($addr) == $removeAddress) {
-				unset($this->sendto[$i]);
-			}
-		}
-	}
 	$this->strTo = implode( ", ", $this->sendto );
 //	pr("mail going to ".$this->strTo);
 	// envoie du mail
