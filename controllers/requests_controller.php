@@ -79,6 +79,7 @@ pr(sizeof($lstRequests)."requestS: for type $thisTypeId provider ".$Provider["Pr
 //pr($lstRequests);
 			$Mail = new IncogMail;
 			$Mail->buildFromRequests($lstRequests);
+			$Mail->To($Provider["Provider"]["contact_email"]);
 			}else{
 			//log "No requests open for provider $Provider["id"]
 			}
@@ -87,7 +88,7 @@ pr($Mail->body);
 pr("<hr/>");
 pr($Mail);
 if($Mail->Send()) {
-echo "Mail sent to ".$Provider["name"]."successfully";
+echo "Mail sent to ".$Provider["Provider"]["name"]." (".$Provider["Provider"]["contact_email"].") successfully\n";
 }
 		}
 	exit;
