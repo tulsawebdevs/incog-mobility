@@ -71,17 +71,18 @@ $audioId = $audiopieces[7];
 
     // Instantiate a new Twilio Rest Client
     $client = new Services_Twilio($accountSid, $authToken);
-    echo ("<table>");
+    $detailAudio = "<table>";
     foreach($client->account->recordings as $recording) {
-if($recording->sid != $audioId ) continue;
+	if($recording->sid != $audioId ) continue;
 	pr($recording->sid);
-    echo "<tr><td>{$recording->duration} seconds</td> ";
-    echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
-    echo "<td>{$recording->date_created}</td>";
-    echo "<td>{$recording->sid}</td></tr>";
+    $detailAudio .= "<tr><td>{$recording->duration} seconds</td> ";
+    $detailAudio .= "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
+    $detailAudio .= "<td>{$recording->date_created}</td>";
+//    $detailAudio .= "<td>{$recording->sid}</td></tr>";
     }
-    echo ("<table>");
-
+    $detailAudio .="<table>";
+$this->set("detailAudio",$detailAudio);
+$this->set("Request",$res);
 
 //exit;		
 	}
