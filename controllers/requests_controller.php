@@ -1,7 +1,7 @@
 <?php
 class RequestsController extends AppController {
 	var $helpers = array("Javascript","Form","Cache","Interform");
-	var $uses = array("Request","Rider");
+	var $uses = array("Request","Rider","Provider");
 
 	function add()  {
 		if(!empty($this->data)) {
@@ -22,7 +22,6 @@ class RequestsController extends AppController {
 			}
 			$this->Request->save($this->data);
 			pr("added");
-			exit;
 		}
 
 	}
@@ -39,16 +38,18 @@ class RequestsController extends AppController {
 		if(isset($riderMatch)
 			&& sizeof($riderMatch) == 1
 		 && $riderMatch[0]["Rider"]["id"]) {
-		pr("submission matched existing Rider ".$riderMatch["Rider"]["id"]);
+		pr("submission matched existing Rider ".$riderMatch[0]["Rider"]["id"]);
 		$lstProviders = array();
 		foreach($riderMatch[0]["Type"] as $Type) {
 			$typeId = $Type["id"];
 			$q = "select * from providers where id in 
 			(select provider_id from providers_types where type_id='$typeId' ) ";
+			pr($q);
 			$typeProviders = $this->Provider->query($q);
 			$lstProviders = array_merge($lstProviders,$typeProviders);
 			
 		}
+		pr("returning ".sizeof($lstProviders));
 		return $lstProviders;
 		exit;
 		}		
