@@ -1,3 +1,4 @@
+
 -- MySQL dump 10.13  Distrib 5.1.49, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: incog_mobility
@@ -117,7 +118,11 @@ CREATE TABLE `riders` (
 
 LOCK TABLES `riders` WRITE;
 /*!40000 ALTER TABLE `riders` DISABLE KEYS */;
-INSERT INTO `riders` VALUES (1,'Daphne Morehead','9189876543',NULL,74136);
+INSERT INTO `riders` VALUES (1,'Daphne Morehead','18177159983',NULL,76051);
+INSERT INTO `riders` VALUES (2,'Luke','19189876543',NULL,74136);
+INSERT INTO `riders` VALUES (3,'Adam','19185198930',NULL,74111);
+INSERT INTO `riders` VALUES (4,'Jessica','13108015852',NULL,74132);
+
 /*!40000 ALTER TABLE `riders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,6 +148,9 @@ CREATE TABLE `riders_types` (
 LOCK TABLES `riders_types` WRITE;
 /*!40000 ALTER TABLE `riders_types` DISABLE KEYS */;
 INSERT INTO `riders_types` VALUES (1,1,1);
+INSERT INTO `riders_types` VALUES (2,2,1);
+INSERT INTO `riders_types` VALUES (3,3,1);
+INSERT INTO `riders_types` VALUES (4,4,1);
 /*!40000 ALTER TABLE `riders_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
