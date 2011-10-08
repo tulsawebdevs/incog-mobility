@@ -207,5 +207,29 @@ function twilio2() {
   exit;
 }
 
+	function completeTwilio() {
+		pr($this->params);
+		if(!Configure::read("debug")) {
+			header("content-type: text/xml");
+		}
+		$newAudioFile =  $_REQUEST['RecordingUrl'];
+		$requestData = array("id"=>2,"audio_url"=>$newAudioFile);
+		$data = array("Request"=>array($requestData));
+		
+		$this->Request->save($requestData);
+		pr("saved ");
+		pr($data);
+    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+
+
+$TwilioResponse =<<<EOF
+		<Response>
+<Say>We have received your ride request. You should hear for a transportation provider soon.</Say>
+<Say>Goodbye.</Say>
+</Response>
+EOF;
+echo $TwilioResponse;
+exit;
+	}
 }		
 ?>
