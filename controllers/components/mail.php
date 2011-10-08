@@ -460,6 +460,15 @@ class IncogMail extends MailComponent {
 
 	function buildFromRequests($lstRequests) {
 		$DOMAIN = FULL_BASE_URL;
+		
+		include("./Services/Twilio.php");
+    include("./Services/Twilio/Capability.php");
+
+    $accountSid = 'AC6dacc852e3782d9f8f034ce8e406ff2d';
+    $authToken = '1c4747dc43eb9199d2c04dc8ed19d3ff';
+    // Instantiate a new Twilio Rest Client
+    $client = new Services_Twilio($accountSid, $authToken);
+    
 		$body =<<<EOF
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
@@ -475,8 +484,8 @@ class IncogMail extends MailComponent {
 				<h1 style="font-size: 20px; font-weight: normal; color: #9c3482;">INCOG Mobility Center Ride Requests</h1>
 
 				<p>Ride requests pending<br/>Oldest requests are listed first</p>
-<table width=100%>
-<tr><td>Rider</td><td>ZIP</td><td>Phone</td><td>Received At</td><td>Description</td></tr>
+<table width=100% border="1">
+<tr><td>Rider</td><td>ZIP</td><td>Phone</td><td>Received At</td><td>Description</td><td>Details</td></tr>
 
 EOF;
 
@@ -486,12 +495,18 @@ $riderName= $Request["Rider"]["name"];
 $riderPhone= $Request["Rider"]["phone"];
 
 $requestZip = $Request["Request"]["zip"];
+
 $requestNote = $Request["Request"]["detail"];
-$requestAudio =  $Request["Request"]["audio_url"];
+if (!$requestNote) {
+  $requestNote = "Please view details for audio request.";
+}
+
+$requestID = $Request["Request"]["id"];
+
 
 
 $body .=<<<EOF
-<tr><td>{$riderName}</td><td>{$requestZip}</td><td>{$riderPhone}</td><td>{$friendlyDate}</td><td>{$requestNote}</td></tr>
+<tr><td>{$riderName}</td><td>{$requestZip}</td><td>{$riderPhone}</td><td>{$friendlyDate}</td><td>{$requestNote}</td><td><a href="{$DOMAIN}/requests/detail/{$Request['Request']['id']}" target="_blank">View Details</a></tr>
 EOF;
 }
 
