@@ -1,1 +1,4 @@
 tmp
+webroot/index.php
+config/database.php
+

@@ -170,5 +170,42 @@ EOF;
 exit;
 }
 
+function twilio2() {
+  
+  pr($this->params);
+  
+  $menu = array();
+  
+  $menu = array('calloffice', 'record-known');
+    
+  $index = $this->params['url']['Digits'];
+  
+  $destination = $menu[$index];
+
+  if(!Configure::read("debug")) {
+      header("content-type: text/xml");
+  }
+  
+  echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response>\n";
+  
+
+  if ( $destination == 'record-known' ) {
+    ?>
+    <Say>Please record your request. Press * when you are finished.</Say>
+    <Record action="<? echo FULL_BASE_URL . '/requests/completetwilio'; ?>" 
+            finishOnKey="*"
+            maxLength="30"
+            />
+    <?php
+  } else {
+    ?>
+    <Say>We are forwarding you to a human.</Say>
+    <?php
+  }
+  
+  ?></Response><?php
+  exit;
+}
+
 }		
 ?>
