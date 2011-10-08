@@ -42,7 +42,7 @@ if(!isset($bodyClassName)) {
 	
 <div id="page">
 	<header>
-		<a href="/" class="logo"><img src="/img/logo.png" alt="oneCARE Logo" width="191" height="128" /></a>
+		<a href="/" class="logo"><img src="/img/logo.png" alt="INCOG" width="191" height="128" /></a>
 		
 		<?php
 		$activeLi = ($controllerName == "Documents")
@@ -84,15 +84,6 @@ if(!isset($bodyClassName)) {
 								</ul>
 							</div>
 						</div>
-					</li>
-					<li>
-						<a href="http://admin.onecaredev.com">Upload Documents</a>
-					</li>
-					<li>
-						<a href="/requests/dashboard">Creative Requests</a>
-					</li>
-					<li>
-						<a href="/users/logout">Log Out</a>
 					</li>
 					<?php } ?>
 				</ul>

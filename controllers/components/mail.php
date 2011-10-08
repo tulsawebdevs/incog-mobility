@@ -389,14 +389,7 @@ function CheckAdresses( $aad )
 	for($i=0;$i< count( $aad); $i++ ) {
 //		echo "checking add ".$aad[$i];
 		if( ! $this->ValidEmail( $aad[$i]) ) {
-			pr("Class Mail, method Mail : invalid address '$aad[$i]' <br/> 
-				automatically appending onecareco.com in case this is a KT user name");
-			$aad[$i] = $aad[$i]."@onecareco.com";
-			if(	! $this->ValidEmail( $aad[$i]) ) {
 			trigger_error("Class still invalid address '$aad[$i]' automatically appending onecare.com");
-			}
-			//
-//			exit;
 		}
 	}
 }
@@ -472,7 +465,7 @@ class IncogMail extends MailComponent {
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>oneCARE</title>
+	<title>INCOG/title>
 </head>
 
 <body style="font: 13px sans-serif; line-height: 1.22; background-color: #fff; color: #444;">

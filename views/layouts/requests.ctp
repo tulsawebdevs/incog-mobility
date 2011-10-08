@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
 
 <?php
-if (!isset($pageTitle)) $pageTitle = "Request New Creative Project - oneCare";
+if (!isset($pageTitle)) $pageTitle = "INCOG Ride Request";
 ?>
 	<title><?php echo $pageTitle?></title>
 
@@ -51,7 +51,7 @@ if(!isset($bodyClass)) {
 <body <?php echo $bodyClassAttr?>>
 <div id="page">
 	<header id="hd">
-		<a href="/" class="logo"><img src="/img/logo.png" alt="oneCARE Logo" width="191" height="128" /></a>
+		<a href="/" class="logo"><img src="/img/logo.png" alt="INCOG" width="191" height="128" /></a>
 		
 		<?php
 		$activeLi = ($controllerName == "Documents")
