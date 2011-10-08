@@ -159,7 +159,7 @@ $TwilioResponse =<<<EOF
 <Response>
     <Say voice="woman">
     Welcome to the INCOG Mobility center.</Say>
-    <Gather action="$FULL_BASE_URL/requests/twilio2'" numDigits="1">
+    <Gather action="$FULL_BASE_URL/requests/twilio2" numDigits="1">
 <Say voice="woman"> To get a ride from {$zip}, press 1 </Say>
 <Say voice="woman"> To use another zip code, press 2 </Say>
 <Say voice="woman"> To speak to a mobility assistant, press 0 </Say></Gather>
