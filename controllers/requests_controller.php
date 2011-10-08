@@ -122,5 +122,33 @@ echo "Mail sent to ".$Provider["Provider"]["name"]." (".$Provider["Provider"]["c
 		$this->set("lstRequests",$allRequests);
 	}
 
+function getUser($receivedFromPhone) {
+}
+
+function twilio() {
+    header("content-type: text/xml");
+    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+
+
+$receivedFromPhone = isset($people[$_REQUEST['From']])
+?str_replace("+","",$people[$_REQUEST['From']])
+:"18177159983";
+include_once("userFunctions.lib.php");
+
+
+$username = $this->getUser($receivedFromPhone);
+        $str = '';
+        $str .= "</Say><Pause length=\"1\" /><Say voice=\"woman\">  and ";
+
+$TwilioResponse =<<<EOF
+<Response>
+    <Say voice="woman">Hello <?php echo $username?> . Welcome to the INCOG Mobility center.</Say>
+{$str}
+</Response>
+EOF;
+	echo $TwilioResponse;
+exit;
+}
+
 }		
 ?>
