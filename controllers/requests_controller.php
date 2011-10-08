@@ -149,14 +149,20 @@ $receivedFromPhone = str_replace("+","",$_REQUEST['From']);
 
 $Rider = $this->getRider($receivedFromPhone);
 $defaultZip = $Rider["Rider"]["default_zip"];
-pr($Rider);
+//pr($Rider);
+$zip = $Rider["Rider"]["default_zip"];
 //exit;
         $str = '';
-        $str .= "<Pause length=\"1\" /><Say voice=\"woman\"> To get a ride from {$zip}, press 1 </Say>";
-
+        $str .= "<Pause length=\"2\" />";
+$FULL_BASE_URL = FULL_BASE_URL;
 $TwilioResponse =<<<EOF
 <Response>
-    <Say voice="woman">Hello <?php echo $username?> . Welcome to the INCOG Mobility center.</Say>
+    <Say voice="woman">
+    Welcome to the INCOG Mobility center.</Say>
+    <Gather action="$FULL_BASE_URL/requests/twilio2'" numDigits="1">
+<Say voice="woman"> To get a ride from {$zip}, press 1 </Say>
+<Say voice="woman"> To use another zip code, press 2 </Say>
+<Say voice="woman"> To speak to a mobility assistant, press 0 </Say></Gather>
 {$str}
 </Response>
 EOF;
