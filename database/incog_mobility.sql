@@ -1,9 +1,8 @@
-
--- MySQL dump 10.13  Distrib 5.1.49, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.1.37, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: incog_mobility
 -- ------------------------------------------------------
--- Server version	5.1.49-1ubuntu8.1
+-- Server version	5.1.37-1ubuntu5.5
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -82,7 +81,7 @@ CREATE TABLE `requests` (
   `status` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,7 +108,7 @@ CREATE TABLE `riders` (
   `notes` text,
   `default_zip` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,11 +117,7 @@ CREATE TABLE `riders` (
 
 LOCK TABLES `riders` WRITE;
 /*!40000 ALTER TABLE `riders` DISABLE KEYS */;
-INSERT INTO `riders` VALUES (1,'Daphne Morehead','18177159983',NULL,76051);
-INSERT INTO `riders` VALUES (2,'Luke','19189876543',NULL,74136);
-INSERT INTO `riders` VALUES (3,'Adam','19185198930',NULL,74111);
-INSERT INTO `riders` VALUES (4,'Jessica','13108015852',NULL,74132);
-
+INSERT INTO `riders` VALUES (1,'Daphne Morehead','18177159983',NULL,76051),(2,'Luke','19189876543',NULL,74136),(3,'Adam','19185198930',NULL,74111),(4,'Jessica','13108015852',NULL,74132);
 /*!40000 ALTER TABLE `riders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +133,7 @@ CREATE TABLE `riders_types` (
   `rider_id` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,10 +142,7 @@ CREATE TABLE `riders_types` (
 
 LOCK TABLES `riders_types` WRITE;
 /*!40000 ALTER TABLE `riders_types` DISABLE KEYS */;
-INSERT INTO `riders_types` VALUES (1,1,1);
-INSERT INTO `riders_types` VALUES (2,2,1);
-INSERT INTO `riders_types` VALUES (3,3,1);
-INSERT INTO `riders_types` VALUES (4,4,1);
+INSERT INTO `riders_types` VALUES (1,1,1),(2,2,1),(3,3,1),(4,4,1);
 /*!40000 ALTER TABLE `riders_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,4 +179,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-10-08 13:31:07
+-- Dump completed on 2011-10-08 20:34:03
