@@ -175,15 +175,15 @@ $receivedFromPhone = str_replace("+","",$_REQUEST['From']);
 
 $Rider = $this->getRider($receivedFromPhone);
 $defaultZip = $Rider["Rider"]["default_zip"];
-//pr($Rider);
 $zip = $Rider["Rider"]["default_zip"];
+$friendlyName = $Rider["Rider"]["name"];
 //exit;
         $str = '';
         $str .= "<Pause length=\"2\" />";
 $FULL_BASE_URL = FULL_BASE_URL;
 $TwilioResponse =<<<EOF
 <Response>
-    <Say voice="woman">
+    <Say voice="woman">Hello {$friendlyName}. 
     Welcome to the INCOG Mobility center.</Say>
     <Gather action="$FULL_BASE_URL/requests/twilio2" numDigits="1">
 <Say voice="woman"> To get a ride from {$zip}, press 1 </Say>

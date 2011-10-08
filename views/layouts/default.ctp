@@ -42,7 +42,7 @@ if(!isset($bodyClassName)) {
 	
 <div id="page">
 	<header>
-		<a href="/" class="logo"><img src="/img/logo.png" alt="INCOG" width="191" height="128" /></a>
+		<a href="/" class="logo"><img src="/img/logo.png" alt="INCOG" /></a>
 		
 		<?php
 		$activeLi = ($controllerName == "Documents")
