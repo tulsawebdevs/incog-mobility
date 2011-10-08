@@ -20,6 +20,7 @@ class RequestsController extends AppController {
 		$allRequests = $this->Request->find("all");
 		foreach($allRequests as $Request) {
 		}
+		$this->set("lstRequests",$allRequests);
 	}
 
 }		

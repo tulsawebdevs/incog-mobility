@@ -9,11 +9,11 @@
 <?php
 	if(isset($folderName)) {
 ?>
-	<title><?php echo $folderName?> - Documents - oneCARE Intranet</title>
+	<title><?php echo $folderName?>INCOG - Ride Request</title>
 <?php
 	} else {
 ?>
-	<title><?php echo $pageTitle?> - oneCARE Intranet</title>
+	<title><?php echo $pageTitle?>INCOG - Ride Request</title>
 <?php
 	}
 ?>

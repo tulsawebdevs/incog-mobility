@@ -22,6 +22,7 @@
 
 <?php
 foreach($lstRequests as $Request) {
+?>
 							<tr><td><?php echo $Request["Request"]?></td>
 							<td><?php echo $HCRequest["Request"]?></td>
 							<td><?php echo $HCRequest["Request"]?></td></tr>
