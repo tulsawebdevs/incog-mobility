@@ -178,7 +178,7 @@ function twilio2() {
   
   $menu = array('calloffice', 'record-known');
     
-  $index = $this->params['url']['Digits'];
+  $index = $_REQUEST['Digits'];
   
   $destination = $menu[$index];
 
