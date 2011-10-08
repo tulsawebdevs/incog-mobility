@@ -68,28 +68,32 @@ where Request.id = '$requestId'
 ";
 //pr($q);
 				$res = $this->Request->query($q);
-	$requestAudio = $res["audio_url"];
+        $requestAudio = $res["Request"]["audio_url"];
+        $audiopieces = explode("/",$requestAudio);
+        $audioId = $audiopieces[7];
 
-    include("./Services/Twilio.php");
+            include("./Services/Twilio.php");
 
-    include("./Services/Twilio/Capability.php");
-    $accountSid = 'AC6dacc852e3782d9f8f034ce8e406ff2d';
-    $authToken = '1c4747dc43eb9199d2c04dc8ed19d3ff';
+            include("./Services/Twilio/Capability.php");
+            $accountSid = 'AC6dacc852e3782d9f8f034ce8e406ff2d';
+            $authToken = '1c4747dc43eb9199d2c04dc8ed19d3ff';
 
-    // Instantiate a new Twilio Rest Client
-    $client = new Services_Twilio($accountSid, $authToken);
-    echo ("<table>");
-    foreach($client->account->recordings as $recording) {
+            // Instantiate a new Twilio Rest Client
+            $client = new Services_Twilio($accountSid, $authToken);
+            $detailAudio = "<table>";
+            foreach($client->account->recordings as $recording) {
+        if($recording->sid != $audioId ) continue;
+        pr($recording->sid);
+            $detailAudio .= "<tr><td>{$recording->duration} seconds</td> ";
+            $detailAudio .= "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
+            $detailAudio .= "<td>{$recording->date_created}</td>";
+        // $detailAudio .= "<td>{$recording->sid}</td></tr>";
+            }
+            $detailAudio .="<table>";
+        $this->set("detailAudio",$detailAudio);
+        $this->set("Request",$res);
 
-    echo "<tr><td>{$recording->duration} seconds</td> ";
-    echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
-    echo "<td>{$recording->date_created}</td>";
-    echo "<td>{$recording->sid}</td></tr>";
-    }
-    echo ("<table>");
-
-
-		$res = $this->Request->read(null,$requestId,array("recursive"=>1));
+        //exit;
 		
 	}
 	function digest() {
