@@ -56,6 +56,8 @@ class RequestsController extends AppController {
 	}
 
 	function detail($requestId) {
+echo FULL_BASE_URL;
+//exit;
 		$res = $this->Request->read(null,$requestId,array("recursive"=>1));
 		
 	}
@@ -75,7 +77,7 @@ where Request.id is not null and Request.status='dispatched'  order by created_a
 				$lstRequests = $this->Request->query($q);
 			}
 			if(sizeof($lstRequests) ) {
-pr(sizeof($lstRequests)."requestS: for type $thisTypeId provider ".$Provider["Provider"]["name"]);
+//pr(sizeof($lstRequests)."requestS: for type $thisTypeId provider ".$Provider["Provider"]["name"]);
 //pr($lstRequests);
 			$Mail = new IncogMail;
 			$Mail->buildFromRequests($lstRequests);
@@ -83,10 +85,10 @@ pr(sizeof($lstRequests)."requestS: for type $thisTypeId provider ".$Provider["Pr
 			}else{
 			//log "No requests open for provider $Provider["id"]
 			}
-pr("MAil body going to ".$Provider["Provider"]["contact_email"]);
+//pr("MAil body going to ".$Provider["Provider"]["contact_email"]);
 pr($Mail->body);
 pr("<hr/>");
-pr($Mail);
+//pr($Mail);
 if($Mail->Send()) {
 echo "Mail sent to ".$Provider["Provider"]["name"]." (".$Provider["Provider"]["contact_email"].") successfully\n";
 }

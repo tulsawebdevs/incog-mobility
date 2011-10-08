@@ -469,13 +469,14 @@ class IncogMail extends MailComponent {
 </head>
 
 <body style="font: 13px sans-serif; line-height: 1.22; background-color: #fff; color: #444;">
-	<table width="600" cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<td>
 				<h1 style="font-size: 20px; font-weight: normal; color: #9c3482;">INCOG Mobility Center Ride Requests</h1>
 
 				<p>Ride requests pending<br/>Oldest requests are listed first</p>
-<table>
+<table width=100%>
+<tr><td>Rider</td><td>ZIP</td><td>Phone</td><td>Received At</td><td>Description</td></tr>
 
 EOF;
 
@@ -485,7 +486,7 @@ $riderName= $Request["Rider"]["name"];
 $riderPhone= $Request["Rider"]["phone"];
 
 $requestZip = $Request["Request"]["zip"];
-$requestZip = $Request["Request"]["detail"];
+$requestNote = $Request["Request"]["detail"];
 $requestAudio =  $Request["Request"]["audio_url"];
 
 
