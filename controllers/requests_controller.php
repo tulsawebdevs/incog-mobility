@@ -105,16 +105,17 @@ where Request.id is not null and Request.status='dispatched'  order by created_a
 			$Mail = new IncogMail;
 			$Mail->buildFromRequests($lstRequests);
 			$Mail->To($Provider["Provider"]["contact_email"]);
+			pr($Mail->body);
+      pr("<hr/>");
+      //pr($Mail);
+      if($Mail->Send()) {
+      echo "Mail sent to ".$Provider["Provider"]["name"]." (".$Provider["Provider"]["contact_email"].") successfully\n";
+      }
+      
 			}else{
 			//log "No requests open for provider $Provider["id"]
 			}
 //pr("MAil body going to ".$Provider["Provider"]["contact_email"]);
-pr($Mail->body);
-pr("<hr/>");
-//pr($Mail);
-if($Mail->Send()) {
-echo "Mail sent to ".$Provider["Provider"]["name"]." (".$Provider["Provider"]["contact_email"].") successfully\n";
-}
 		}
 	exit;
 	}
