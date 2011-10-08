@@ -51,7 +51,7 @@ if(!isset($bodyClass)) {
 <body <?php echo $bodyClassAttr?>>
 <div id="page">
 	<header id="hd">
-		<a href="/" class="logo"><img src="/img/logo.png" alt="INCOG" width="191" height="128" /></a>
+		<a href="/" class="logo"><img src="/img/logo.png" alt="INCOG" width="343" height="80" /></a>
 		
 		<?php
 		$activeLi = ($controllerName == "Documents")
