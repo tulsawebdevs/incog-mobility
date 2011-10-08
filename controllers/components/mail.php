@@ -1,4 +1,4 @@
-<?php 
+d<?php 
 
  class MailComponent
  {
@@ -465,7 +465,7 @@ class IncogMail extends MailComponent {
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>INCOG/title>
+	<title>INCOG</title>
 </head>
 
 <body style="font: 13px sans-serif; line-height: 1.22; background-color: #fff; color: #444;">
