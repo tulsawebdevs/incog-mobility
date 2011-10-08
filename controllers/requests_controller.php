@@ -56,8 +56,31 @@ class RequestsController extends AppController {
 	}
 
 	function detail($requestId) {
-echo FULL_BASE_URL;
+//echo FULL_BASE_URL;
 //exit;
+                $res = $this->Request->read(null,$requestId,array("recursive"=>1));
+	$requestAudio = $res["audio_url"];
+
+    include("./Services/Twilio.php");
+
+    include("./Services/Twilio/Capability.php");
+    $accountSid = 'AC6dacc852e3782d9f8f034ce8e406ff2d';
+    $authToken = '1c4747dc43eb9199d2c04dc8ed19d3ff';
+
+    // Instantiate a new Twilio Rest Client
+    $client = new Services_Twilio($accountSid, $authToken);
+    echo ("<table>");
+    foreach($client->account->recordings as $recording) {
+pr($recording);
+exit;
+    echo "<tr><td>{$recording->duration} seconds</td> ";
+    echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
+    echo "<td>{$recording->date_created}</td>";
+    echo "<td>{$recording->sid}</td></tr>";
+    }
+    echo ("<table>");
+
+
 		$res = $this->Request->read(null,$requestId,array("recursive"=>1));
 		
 	}
@@ -233,8 +256,9 @@ exit;
 	}
 	
   function playTwilio() {
+    include("./Services/Twilio.php");
     
-    include("./Services/Twilio/Capabilty.php");
+    include("./Services/Twilio/Capability.php");
     $accountSid = 'AC6dacc852e3782d9f8f034ce8e406ff2d';
     $authToken = '1c4747dc43eb9199d2c04dc8ed19d3ff';
     
@@ -243,11 +267,12 @@ exit;
     echo ("<table>");
     foreach($client->account->recordings as $recording) {
     echo "<tr><td>{$recording->duration} seconds</td> ";
-    echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.mp3\" controls preload=\"auto\" autobuffer></audio></td>";
+    echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.wav\" controls preload=\"auto\" autobuffer></audio></td>";
     echo "<td>{$recording->date_created}</td>";
     echo "<td>{$recording->sid}</td></tr>";
     }
     echo ("<table>");
+exit;
   }
 	
 }		
