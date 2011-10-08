@@ -137,8 +137,9 @@ include_once("userFunctions.lib.php");
 
 
 $username = $this->getUser($receivedFromPhone);
+$zip = "74136";
         $str = '';
-        $str .= "</Say><Pause length=\"1\" /><Say voice=\"woman\">  and ";
+        $str .= "<Pause length=\"1\" /><Say voice=\"woman\"> To get a ride from {$zip}, press 1 </Say>";
 
 $TwilioResponse =<<<EOF
 <Response>
