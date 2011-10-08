@@ -227,7 +227,7 @@ function twilio2() {
 
   if ( $destination == 'record-known' ) {
     ?>
-    <Say>Please record your request. Press * when you are finished.</Say>
+    <Say voice="woman">Please record your request. Press * when you are finished.</Say>
     <Record action="<? echo FULL_BASE_URL . '/requests/completetwilio'; ?>" 
             finishOnKey="*"
             maxLength="30"
@@ -235,7 +235,7 @@ function twilio2() {
     <?php
   } else {
     ?>
-    <Say>We are forwarding you to a human.</Say>
+    <Say voice="woman">We are forwarding you to a human.</Say>
     <Dial>918-519-8930</Dial>
     <?php
   }
