@@ -62,8 +62,6 @@ class RequestsController extends AppController {
 	function digest() {
 		$lstProviders = $this->Provider->find("all");
 		foreach($lstProviders as $Provider) {
-pr("types matchin provider ".$Provider["Provider"]["id"]);
-pr($Provider["Type"]);
 			foreach($Provider["Type"] as $Type) {
 $thisTypeId = $Type["id"];
 $q = "select
@@ -71,21 +69,26 @@ $q = "select
 	from riders_types x
 	left join riders Rider on (x.rider_id=Rider.id and x.type_id='$thisTypeId' )
 	left join requests Request on Request.rider_id=Rider.id
-where Request.id is not null
+where Request.id is not null and Request.status='dispatched'  order by created_at 
 ";
-pr($q);
+//pr($q);
 				$lstRequests = $this->Request->query($q);
 			}
 			if(sizeof($lstRequests) ) {
-pr("requestS: for type $thisTypeId ");
-pr($lstRequests);
+pr(sizeof($lstRequests)."requestS: for type $thisTypeId provider ".$Provider["Provider"]["name"]);
+//pr($lstRequests);
 			$Mail = new IncogMail;
 			$Mail->buildFromRequests($lstRequests);
 			}else{
 			//log "No requests open for provider $Provider["id"]
 			}
+pr("MAil body going to ".$Provider["Provider"]["contact_email"]);
+pr($Mail->body);
+pr("<hr/>");
 pr($Mail);
-exit;
+if($Mail->Send()) {
+echo "Mail sent to ".$Provider["name"]."successfully";
+}
 		}
 	exit;
 	}
