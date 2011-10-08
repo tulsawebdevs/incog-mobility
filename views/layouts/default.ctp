@@ -98,15 +98,6 @@ if(!isset($bodyClassName)) {
 				</ul>
 			</nav>
 
-			<form id="searchForm" action="/documents/search" method="post">
-
-<?php
-if(isset($_GET["d"]) && $_GET["d"]) {
-	?><input name="formDebug" value="<?php echo $_GET["d"]?>" type="hidden"><?php
-}
-?>
-				<input type="text" class="text text" name="data[Document][keyword]" placeholder="Search for&hellip;" />
-			</form>
 		</div><!-- /#primaryNavAndSearchWrapper -->
 	</header>
 
@@ -121,8 +112,6 @@ if(isset($_GET["d"]) && $_GET["d"]) {
 
 <footer>
 	<div class="wrapper">
-		<p>&copy; Copyright 2010 &mdash; <?php echo date('Y'); ?> The oneCARE Co. All Rights Reserved. All copy and claims valid only in the U.S.</p>
-		<p><a href="http://bouncecare.com">BounceCare.com</a> | <a href="http://downywrinklereleaser.com">DownyWrinkleReleaser.com</a> | <a href="http://dryel.com">Dryel.com</a> | <a href="http://dreftbabycare.com">DreftBabyCare.com</a> | <a href="http://newfebreze.com">NewFebreze.com</a> | <a href="http://tidecare.com">TideCare.com</a></p>
 	</div>
 </footer>
 
