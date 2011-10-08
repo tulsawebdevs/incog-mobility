@@ -182,9 +182,23 @@ if(!Configure::read("debug")) {
 
 $receivedFromPhone = str_replace("+","",$_REQUEST['From']);
 
+$zipBlock = "";
+$helloBlock = "";
 
 $Rider = $this->getRider($receivedFromPhone);
+if($Rider["Rider"]["id"]) {
+	$name = $Rider["Rider"]["name"];
+	$zipBlock =<<<EOF
+<Say voice="woman"> To get a ride from {$zip}, press 1 </Say>
+<Say voice="woman"> To use another zip code, press 2 </Say>
+	
+EOF;
+$helloBlock =<<<EOF
+<Say voice="woman">Hello {$name}. </Say>
+EOF;
+}
 $defaultZip = $Rider["Rider"]["default_zip"];
+
 //pr($Rider);
 $zip = $Rider["Rider"]["default_zip"];
 //exit;
@@ -196,8 +210,6 @@ $TwilioResponse =<<<EOF
     <Say voice="woman">
     Welcome to the INCOG Mobility center.</Say>
     <Gather action="$FULL_BASE_URL/requests/twilio2" numDigits="1">
-<Say voice="woman"> To get a ride from {$zip}, press 1 </Say>
-<Say voice="woman"> To use another zip code, press 2 </Say>
 <Say voice="woman"> To speak to a mobility assistant, press 0 </Say></Gather>
 {$str}
 </Response>
