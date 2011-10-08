@@ -497,8 +497,8 @@ $riderPhone= $Request["Rider"]["phone"];
 $requestZip = $Request["Request"]["zip"];
 
 $requestNote = $Request["Request"]["detail"];
-if (!$requestNote) {
-  $requestNote = "Please view details for audio request.";
+if ($Request["Request"]["audio_url"]) {
+  $requestNote .= "<p>Please view details for audio request.</p>";
 }
 
 $requestID = $Request["Request"]["id"];
