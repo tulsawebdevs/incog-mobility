@@ -1,0 +1,58 @@
+$maxWidth: 960px;
+
+// Colors
+$purple: #9c3482;
+$yellow: #e8c055;
+$blue: #607890;
+$blueHover: #036;
+$darkBlue: #133d6f;
+$lightBlue: #3c8eca;
+$lightBrown: #97714a;
+
+// Mixins
+@mixin header($size, $color, $weight: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin roundedCorners($tl: 0, $tr: 0, $bl: 0, $br: 0) {
+  .borderradius & {
+    -webkit-border-top-left-radius: $tl;
+    -webkit-border-top-right-radius: $tr;
+    -webkit-border-bottom-right-radius: $br;
+    -webkit-border-bottom-left-radius: $bl;
+    
+    -moz-border-radius-topleft: $tl;
+    -moz-border-radius-topright: $tr;
+    -moz-border-radius-bottomright: $br;
+    -moz-border-radius-bottomleft: $bl;
+    border-top-left-radius: $tl;
+    border-top-right-radius: $tr;
+    border-bottom-right-radius: $br;
+    border-bottom-left-radius: $bl;
+  }
+}
+
+@mixin hasDropdown($size: "large") {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  @if $size == small {
+    padding-right: 12px !important;
+    background-position: center right;
+    background-image: url(../img/icons/dropdown-arrow-small.png);
+  } @else {
+    background-position: 90% center;
+    background-image: url(../img/icons/dropdown-arrow-large.png);
+  }
+}
+
+@mixin tableBorders($padding: 5px, $width: 1px, $color: #ccc) {
+  border-top: $width solid $color;
+	border-left: $width solid $color;
+	th, td {
+	  padding: $padding;
+	  border-right: $width solid $color;
+  	border-bottom: $width solid $color;
+	}
+}

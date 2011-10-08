@@ -1,0 +1,54 @@
+// General form elements
+textarea {
+  width: 100%;
+  height: 100px;
+	margin-top: .5em;
+}
+
+select {
+  padding: 2px;
+}
+
+input.text {
+  width: 175px;
+}
+
+.description, span.error {
+  display: block;
+  font-size: 85%;
+  font-style: italic;
+  color: #999;
+}
+
+span.required, span.error {
+  font-style: normal;
+  color: #FF8373;
+}
+
+.field {
+  margin-bottom: 1em;
+  label {
+    display: block;
+  }
+}
+
+.fields {
+  margin-bottom: 1em;
+  dd, li {
+    label {
+      display: block;
+      margin-bottom: .5em;
+    }
+  }
+	dt {
+		margin-bottom: .5em;
+	}
+}
+
+.horizontal {
+	dd, li {
+		@include float-left();
+		margin-right: 20px;
+		margin-bottom: 1em;
+	}
+}

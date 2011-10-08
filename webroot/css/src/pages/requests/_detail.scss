@@ -1,0 +1,35 @@
+body.requestDetail {
+  #bd .main {
+    h1 {
+      margin-bottom: 0;
+    }
+    
+    h2 {
+      padding-left: 0;
+    }
+
+    ul {
+      margin-left: 2em;
+      list-style: disc;
+			&.tabBar {
+				margin-left: 0;
+				list-style: none;
+			}
+    }
+  }
+
+	.modal {
+		display: none;
+		ul {
+			margin-left: 15px;
+		}
+		.emailSent {
+			// Initially hidden in needMoreInfo modal, displayed on email send
+			display: none;
+		}
+	}
+	
+	.noteMeta {
+		font-size: 77%;
+	}
+}

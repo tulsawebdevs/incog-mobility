@@ -1,0 +1,202 @@
+/*  style.css contains a reset, font normalization and some base styles.  credit is left where credit is due. additionally, much inspiration was taken from these projects: yui.yahooapis.com/2.8.1/build/base/base.css camendesign.com/design/ praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+/*  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline) v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark html5doctor.com/html-5-reset-stylesheet/
+*/
+/* line 17, src/partials/_reset.scss */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+
+/* line 26, src/partials/_reset.scss */
+article, aside, figure, footer, header, hgroup, nav, section { display: block; }
+
+/* line 29, src/partials/_reset.scss */
+nav ul { list-style: none; }
+
+/* line 33, src/partials/_reset.scss */
+blockquote, q { quotes: none; }
+
+/* line 38, src/partials/_reset.scss */
+blockquote:before, blockquote:after { content: ''; content: none; }
+
+/* line 45, src/partials/_reset.scss */
+q:before, q:after { content: ''; content: none; }
+
+/* line 51, src/partials/_reset.scss */
+a { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+
+/* line 60, src/partials/_reset.scss */
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+/* line 66, src/partials/_reset.scss */
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+
+/* line 73, src/partials/_reset.scss */
+del { text-decoration: line-through; }
+
+/* line 77, src/partials/_reset.scss */
+abbr[title], dfn[title] { border-bottom: 1px dotted #000; cursor: help; }
+
+/* tables still need cellspacing="0" in the markup */
+/* line 84, src/partials/_reset.scss */
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* line 89, src/partials/_reset.scss */
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ddd; margin: 1em 0; padding: 0; }
+
+/* line 98, src/partials/_reset.scss */
+input, select { vertical-align: middle; }
+
+/* END RESET CSS */
+/*
+fonts.css from the YUI Library: developer.yahoo.com/yui/ Please refer to developer.yahoo.com/yui/fonts/ for font sizing percentages
+
+There are two custom edits: make the line-height relative and unit-less remove the pre,code styles as we use a recommendation from Eric Meyer instead
+*/
+/* line 113, src/partials/_reset.scss */
+body { font: 12px verdana,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; *font-size: small; *font: x-small; line-height: 1.22; }
+
+/* line 120, src/partials/_reset.scss */
+table { font-size: inherit; font: 100%; }
+
+/* line 125, src/partials/_reset.scss */
+select, input, textarea { font: 99% verdana,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; }
+
+/* normalize monospace sizing  meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/ */
+/* line 132, src/partials/_reset.scss */
+code, pre { font-family: "Courier New", monospace, serif; font-size: 1em; }
+
+/*  minimal base styles  */
+/* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+/* line 142, src/partials/_reset.scss */
+body, select, input, textarea { color: #444; }
+
+/* Headers (h1,h2,etc) have no default font-size or margin, you'll want to define those yourself. */
+/* www.aestheticallyloyal.com/public/optimize-legibility/ */
+/* line 150, src/partials/_reset.scss */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; text-rendering: optimizeLegibility; }
+
+/* maxvoltar.com/archive/-webkit-font-smoothing */
+/* line 156, src/partials/_reset.scss */
+html { -webkit-font-smoothing: antialiased; }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+/* line 161, src/partials/_reset.scss */
+a { text-decoration: none; color: #607890; }
+/* line 164, src/partials/_reset.scss */
+a:active { outline: none; }
+/* line 167, src/partials/_reset.scss */
+a:focus { outline: thin dotted; }
+/* line 170, src/partials/_reset.scss */
+a:active, a:visited { color: #607890; }
+/* line 173, src/partials/_reset.scss */
+a:hover { text-decoration: underline; color: #036; }
+
+/* line 183, src/partials/_reset.scss */
+ol { list-style-type: decimal; }
+
+/* line 188, src/partials/_reset.scss */
+small { font-size: 85%; }
+
+/* line 192, src/partials/_reset.scss */
+strong, th { font-weight: bold; }
+
+/* line 195, src/partials/_reset.scss */
+td { vertical-align: top; }
+/* line 197, src/partials/_reset.scss */
+td img { vertical-align: top; }
+
+/* line 202, src/partials/_reset.scss */
+sub { vertical-align: sub; font-size: smaller; }
+
+/* line 207, src/partials/_reset.scss */
+sup { vertical-align: super; font-size: smaller; }
+
+/* line 212, src/partials/_reset.scss */
+pre { padding: 15px; /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */ white-space: pre; /* CSS2 */ white-space: pre-wrap; /* CSS 2.1 */ white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */ word-wrap: break-word; /* IE */ }
+
+/* align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+/*input { &[type="radio"] { vertical-align: text-bottom; } &[type="checkbox"] { vertical-align: bottom; vertical-align: baseline; }
+}*/
+/* hand cursor on clickable input elements */
+/* line 238, src/partials/_reset.scss */
+label { cursor: pointer; }
+
+/* line 243, src/partials/_reset.scss */
+input[type=button], input[type=submit] { cursor: pointer; }
+
+/* line 248, src/partials/_reset.scss */
+button { cursor: pointer; }
+
+/* These selection declarations have to be separate. No text-shadow: twitter.com/miketaylr/status/12228805301  Also: hot pink. */
+/* line 255, src/partials/_reset.scss */
+::-moz-selection { background: #9c3482; color: #fff; text-shadow: none; }
+
+/* line 261, src/partials/_reset.scss */
+::selection { background: #9c3482; color: #fff; text-shadow: none; }
+
+/*  j.mp/webkit-tap-highlight-color */
+/* line 268, src/partials/_reset.scss */
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+
+/* always force a scrollbar in non-IE */
+/* line 273, src/partials/_reset.scss */
+html { overflow-y: scroll; }
+
+/* make buttons play nice in IE:     www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+/* line 279, src/partials/_reset.scss */
+button { width: auto; overflow: visible; }
+
+/*  Non-semantic helper classes  */
+/* for image replacement */
+/* line 289, src/partials/_reset.scss */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: none; }
+
+/* Hide for both screenreaders and browsers css-discuss.incutio.com/wiki/Screenreader_Visibility */
+/* line 298, src/partials/_reset.scss */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders  www.webaim.org/techniques/css/invisiblecontent/  Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+/* line 306, src/partials/_reset.scss */
+.visuallyhidden { position: absolute !important; clip: rect(1px 1px 1px 1px); /* IE6, IE7 */ clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+/* line 314, src/partials/_reset.scss */
+.invisible { visibility: hidden; }
+
+/* line 318, src/partials/_reset.scss */
+.left { display: inline; float: left; margin-right: 10px; margin-bottom: 10px; }
+
+/* line 324, src/partials/_reset.scss */
+.right { display: inline; float: right; margin-left: 10px; margin-bottom: 10px; }
+
+/* >> The Magnificent CLEARFIX << */
+/* line 331, src/partials/_reset.scss */
+.clearfix { display: inline-block; }
+/* line 332, src/partials/_reset.scss */
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+/* line 340, src/partials/_reset.scss */
+* html .clearfix { height: 1%; }
+
+/* Hides from IE-mac \*/
+/* line 345, src/partials/_reset.scss */
+.clearfix { display: block; }
+
+/* line 5, src/rte.scss */
+#rteBody { padding: 10px; }
+
+/* line 9, src/rte.scss */
+h1, h2, h3, h4, h5, h6, p, ol, ul, dl, hr, table, blockquote { margin-bottom: 1em; font-weight: normal; }
+/* line 12, src/rte.scss */
+h1.last, h2.last, h3.last, h4.last, h5.last, h6.last, p.last, ol.last, ul.last, dl.last, hr.last, table.last, blockquote.last { margin-bottom: 0; }
+
+/* line 17, src/rte.scss */
+h1 { font-size: 20px; font-weight: normal; color: #9c3482; }
+
+/* line 21, src/rte.scss */
+h2 { font-size: 18px; font-weight: normal; color: #133d6f; }
+
+/* line 25, src/rte.scss */
+h3 { font-size: 15px; font-weight: bold; color: #32231a; }
+
+/* line 29, src/rte.scss */
+.left { display: inline; float: left; margin-right: 5px; }

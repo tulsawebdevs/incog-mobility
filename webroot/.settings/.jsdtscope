@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="js"/>
+	<classpathentry excluding="colorbox/|jsTree/|jsTree/demo/syntax/|jsTree/lib/|jsTree/plugins/|dataTables-1.6/media/js/" kind="src" path="vendor"/>
+	<classpathentry kind="src" path="vendor/colorbox"/>
+	<classpathentry kind="src" path="vendor/dataTables-1.6/media/js"/>
+	<classpathentry excluding="demo/syntax/|lib/|plugins/" kind="src" path="vendor/jsTree"/>
+	<classpathentry kind="src" path="vendor/jsTree/demo/syntax"/>
+	<classpathentry kind="src" path="vendor/jsTree/lib"/>
+	<classpathentry kind="src" path="vendor/jsTree/plugins"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

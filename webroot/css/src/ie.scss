@@ -1,0 +1,37 @@
+input {
+  _vertical-align: text-bottom;
+}
+
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+*+html img {
+  -ms-interpolation-mode: bicubic;
+}
+
+.ie6 header,
+.ie7 header {
+  z-index: 100 !important;
+}
+
+.ie6 #bd {
+  z-index: 0 !important;
+}
+
+.ie6 #primaryNavAndSearchWrapper,
+.ie7 #primaryNavAndSearchWrapper {
+  position: absolute !important;
+  top: 47px !important;
+  left: 0 !important;
+}
+
+.ie6 body.documents,
+.ie7 body.documents {
+  .documentsListWrapper {
+    ul {
+      display: block;
+    }
+    a.hasChildren h2 {
+      background: none;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import "compass/utilities";
+@import "partials/lib";
+@import "partials/reset";
+
+#rteBody {
+  padding: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, p, ol, ul, dl, hr, table, blockquote {
+  margin-bottom: 1em;
+  font-weight: normal;
+  &.last {
+    margin-bottom: 0;
+  }
+}
+
+h1 {
+  @include header(20px, $purple);
+}
+
+h2 {
+  @include header(18px, $darkBlue);
+}
+
+h3 {
+  @include header(15px, #32231a, bold);
+}
+
+.left {
+  @include float-left;
+  margin-right: 5px;
+}

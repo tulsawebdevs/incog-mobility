@@ -1,0 +1,25 @@
+Options +FollowSymLinks
+RewriteEngine On
+AddType application/ogg ogg
+AddType video/ogg ogv
+AddType audio/ogg oga
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} ^/img/.*jpg$
+    RewriteRule ^.*$ - [L]
+    RewriteCond %{REQUEST_URI} ^/img/.*gif$
+    RewriteRule ^.*$ - [L]
+    RewriteCond %{REQUEST_URI} ^.*swf$
+    RewriteRule ^.*$ - [L]
+    RewriteCond %{REQUEST_URI} ^/img/.*jpeg$
+    RewriteRule ^.*$ - [L]
+    RewriteCond %{REQUEST_URI} ^/img/.*png$
+    RewriteRule ^.*$ - [L]
+    RewriteCond %{REQUEST_URI} ^/test.php$
+    RewriteRule ^.*$ - [L]
+    RewriteCond %{REQUEST_URI} ^/t.php$
+    RewriteRule ^.*$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>

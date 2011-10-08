@@ -1,0 +1,20 @@
+# THS PMP Blendfile
+css: 
+  global-min.css:
+    - base.css
+    - common.css
+    - forms.css
+    - tables.css
+    - ../vendor/dataTables-1.6/media/css/demo_table_jui.css
+    - jquery-ui-1.7.2.custom.css
+    - ../vendor/colorbox/css/colorbox.css
+    - ../vendor/jsTree/themes/default/style
+js: 
+  global-min.js:
+    - ../vendor/jquery.validate.min.js
+    - ../vendor/dataTables-1.6/media/js/jquery.dataTables.min.js
+    - ../vendor/colorbox/jquery.colorbox-min.js
+    - ../vendor/jquery.maskedinput-1.2.2.min.js
+    - ../vendor/DD_belatedPNG.min.js
+    - ../vendor/jsTree/jquery.tree.js
+    - global.js

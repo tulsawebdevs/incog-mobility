@@ -1,0 +1,7 @@
+body.directory {
+  table {
+    clear: both;
+    width: 100%;
+    @include tableBorders;
+  }
+}

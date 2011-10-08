@@ -1,0 +1,33 @@
+body.documents {
+  .documentsListWrapper {
+    ul {
+      display: none;
+      margin-left: 20px;
+      .ie6 & {
+        display: block !important;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+    h2 {
+      margin-bottom: 7px;
+      padding-left: 32px;
+    }
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+      &.hasChildren {
+        h2 {
+          background-image: url(../img/icons/bullet_toggle_plus.png);
+          background-repeat: no-repeat;
+          background-position: 0 50%;
+          .ie6 & {
+            background: none;
+          }
+        }
+      }
+    }
+  }
+}

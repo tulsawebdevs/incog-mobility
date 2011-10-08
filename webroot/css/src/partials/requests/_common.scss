@@ -1,0 +1,88 @@
+// ===== Element Defaults =====
+
+/*
+  h1 {
+    font-size: 167%;
+    font-weight: normal;
+    color: #9C3482;
+  }
+
+  h2 {
+    font-size: 138.5%;
+    font-weight: normal;
+    color: #133D6F;
+  }
+
+  h3 {
+    font-size: 116%;
+    color: #32231A;
+  }
+*/
+
+table {
+  width: 100%;
+  th, td {
+    padding: 5px;
+    &.center {
+      text-align: center;
+    }
+  }
+}
+
+/*
+  a {
+    @include link-colors($blue, $blueHover, $blue, $blue, $blue);
+  }
+*/
+
+// ===== General Classes =====
+
+.ui-widget {
+  font-size: 1em !important;
+}
+
+.ui-state-active a, .ui-widget-content .ui-state-active a, .ui-widget-header .ui-state-active a {
+  color: #9C3482;
+}
+
+.ui-tabs-nav li {
+  margin-bottom: 0 !important;
+}
+
+.ui-datepicker-trigger {
+  margin-left: 5px;
+  vertical-align: middle;
+  &:hover {
+    cursor: pointer;
+  }
+  .ie6 & {
+    display: none;
+  }
+}
+
+.messaging {
+  @include blueprint-interaction;
+  img {
+    vertical-align: text-bottom;
+  } 
+}
+
+html.js .no-js {
+  // Never show any JS-fallback elements when JS is enabled
+  display: none;
+}
+
+// ===== General Site Structure =====
+
+/*
+  body, select, input, textarea {
+    font-family: verdana, sans-serif;
+    color: #444;
+  }
+
+  #page {
+    width: $maxWidth;
+    margin: 0 auto;
+    padding-top: 1em;
+  }
+*/

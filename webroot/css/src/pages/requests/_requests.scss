@@ -1,0 +1,71 @@
+body.requestAdd {
+  .main {
+    h2 {
+      padding-left: 24px;
+      &.collapsed {
+        color: #999;
+        background: transparent url(../img/icons/arrow_right.png) center left no-repeat;
+      }
+      &.expanded {
+        background: transparent url(../img/icons/arrow_down.png) center left no-repeat;
+      }
+      .ie6 & {
+        background: none;
+        padding-left: 0;
+        color: #133D6F !important;
+      }
+    }
+
+    a.brandImg img {
+      border: 1px solid #fff;
+      padding: 5px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    
+    .projectTypes, .requestedMaterials {
+      list-style: none;
+      padding-left: 0 !important;
+    }
+
+    .additionalFieldWrapper {
+      display: none;
+      .field.disabled {
+        label, span.description {
+          color: #ddd;
+        }
+      }
+    }
+  }
+  
+  // Form elements
+	.addItem {
+		margin-top: 0;
+	}
+	
+  .removeItem {
+    img {
+      vertical-align: middle;
+    }
+  }
+  
+  // Form layout
+  .section {
+    display: none;
+    margin-bottom: 1em;
+    .ie6 & {
+      display: block;
+    }
+  }
+
+  .ie6 button.continueForm {
+    display: none !important;
+  }
+}
+
+body.operationsRequestAdd {
+	.requestType, .requestedMaterialsDetailWrapper, .progressiveField {
+		display: none;
+	}
+}
