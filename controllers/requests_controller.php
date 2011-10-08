@@ -62,13 +62,13 @@ class RequestsController extends AppController {
 $q = "select
 	Request.*, Rider.*
 	from riders_types x
-	left join riders Rider on (x.rider_id=Rider.id and x.type_id='$thisTypeId' )
+	left join riders Rider on (x.rider_id=Rider.id)
 	left join requests Request on Request.rider_id=Rider.id
 where Request.id = '$requestId'
 ";
-//pr($q);
+pr($q);
 				$res = $this->Request->query($q);
-        $requestAudio = $res["Request"]["audio_url"];
+        $requestAudio = $res[0]["Request"]["audio_url"];
         $audiopieces = explode("/",$requestAudio);
         $audioId = $audiopieces[7];
 
@@ -236,6 +236,7 @@ function twilio2() {
   } else {
     ?>
     <Say>We are forwarding you to a human.</Say>
+    <Dial>918-519-8930</Dial>
     <?php
   }
   
