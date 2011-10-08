@@ -126,14 +126,13 @@ function getUser($receivedFromPhone) {
 }
 
 function twilio() {
+if(!Configure::read("debug")) {
     header("content-type: text/xml");
+}
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
 
-$receivedFromPhone = isset($people[$_REQUEST['From']])
-?str_replace("+","",$people[$_REQUEST['From']])
-:"18177159983";
-include_once("userFunctions.lib.php");
+$receivedFromPhone = str_replace("+","",$people[$_REQUEST['From']]);
 
 
 $username = $this->getUser($receivedFromPhone);
