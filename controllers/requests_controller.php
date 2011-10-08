@@ -60,7 +60,16 @@ class RequestsController extends AppController {
 		
 	}
 
+	function admin() {
+		$conditions = array("status in ('provider undetermined') ");
+		$undeterminedRequests = $this->Request->find("all"
+		array("conditions"=>$conditions)
+		);
+		pr($undeterminedRequests);
+		exit;
 
+	}
+	
 	function dashboard() {
 		$allRequests = $this->Request->find("all");
 		foreach($allRequests as $Request) {
