@@ -59,6 +59,20 @@ class RequestsController extends AppController {
 		$res = $this->Request->read(null,$requestId,array("recursive"=>1));
 		
 	}
+	function digest() {
+		$lstProviders = $this->Request->find("all");
+		foreach($lstProviders as $Provider) {
+			$lstRequests = $this->Request->find("all",
+			array("conditions"=>$conditions)
+			);
+			if(sizeof($lstRequests) ) {
+			$Mail = new IncogMail;
+			$Mail->buildFromRequests($lstRequests);
+			}else{
+			//log "No requests open for provider $Provider["id"]
+			}
+		}
+	}
 
 	function claim($requestId) {
 		$res = $this->Request->read(null,$requestId,array("recursive"=>1));

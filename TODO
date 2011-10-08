@@ -4,8 +4,10 @@ validate as HTML5
 prettier layout, more appropriate graphics
 
 twilio:
-record voice script
+(preprocess) insert rider/request record (request status "incomplete") immediately upon answer; store last insert id
+
 (preprocess) identify rider (type & zip) by phone if possible
+record voice script
 
 provider interface (web):
 identify provide by hash in email link
