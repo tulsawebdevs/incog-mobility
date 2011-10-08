@@ -210,8 +210,8 @@ pr($Rider);
 $FULL_BASE_URL = FULL_BASE_URL;
 $TwilioResponse =<<<EOF
 <Response>
-    <Say voice="woman">{$helloBlock}
-    Welcome to the INCOG Mobility center.</Say>
+   {$helloBlock}
+   <Say voice="woman"> Welcome to the INCOG Mobility center.</Say>
     <Gather action="$FULL_BASE_URL/requests/twilio2" numDigits="1">
 {$zipBlock}
 <Say voice="woman"> To speak to a mobility assistant, press 0 </Say></Gather>
